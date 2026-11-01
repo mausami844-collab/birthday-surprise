@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>🎂 A Little Surprise Just For You</title>
+<meta name="theme-color" content="#14082e">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- ================= SHINCHAN INTRO ================= -->
+
+<section id="shinIntro">
+
+  <!-- BIG SHINCHAN - LEFT SIDE -->
+  <div class="shin-character">
+    <img
+      src="media/photos/shinchan-blue-shirt-cutout.png"
+      alt="Shinchan">
+  </div>
+
+  <!-- INTRO CARD -->
+  <div class="shin-card">
+
+    <p class="shin-small">しんちゃん! ⭐</p>
+
+    <h2>Hellllllo!!! Mera nam hai Sinchan aur mein hun sbse acha bachhaa</h2>
+
+    <p class="shin-question">
+      !!!Sinchan apke samne lekr aaya haiiiii ...tantannnnaaa!!! 👀
+    </p>
+
+    <p class="shin-sub">
+      Chlo chlo jaldi dawaooooo😂
+    </p>
+
+    <div class="shin-buttons">
+      <button id="shinYes">YES 😎</button>
+      <button id="shinNo">NO 🙄</button>
+    </div>
+
+    <p class="shin-bottom">
+      Shinchan ki kasam, maza aayega! 😂
+    </p>
+
+  </div>
+
+  <!-- SMALL SHINCHAN - RIGHT BOTTOM -->
+  <div class="shin-corner">
+    <img
+      src="media/photos/shinchan-red-shirt-cutout.png"
+      alt="Shinchan">
+  </div>
+
+  <span class="shin-star s1">⭐</span>
+  <span class="shin-star s2">✨</span>
+  <span class="shin-star s3">🍭</span>
+
+</section>
+
+
+<!-- ================= PASSWORD SCREEN ================= -->
+
+<section id="gate" hidden>
+
+  <div class="gate-box">
+
+    <div class="toon">🔐</div>
+
+    <h2 id="gateTitle"></h2>
+
+    <p class="sub" id="gateHint"></p>
+
+    <input
+      id="gateInput"
+      type="text"
+      autocomplete="off"
+      aria-label="Passcode"
+      placeholder="Passcode yahan">
+
+    <div class="row">
+
+      <button class="btn" id="gateBtn">
+        Khul jaaa sim sim 🔓
+      </button>
+
+      <button class="btn ghost" id="hintBtn">
+        Hint do 🥲
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= NAVIGATION & MUSIC ================= -->
+
+<div class="dots" id="dots" role="navigation" aria-label="Steps"></div>
+
+<button id="musicBtn" class="music" aria-label="Toggle music" hidden>
+  🎵
+</button>
+
+<audio id="audio" loop preload="none"></audio>
+
+
+<!-- ================= MAIN BIRTHDAY WEBSITE ================= -->
+
+<main id="app" hidden>
+
+
+  <!-- 1. HERO -->
+  <section class="stage light active" id="st-hero">
+
+    <div class="petals" id="petals" aria-hidden="true"></div>
+
+    <svg class="treeSvg" viewBox="0 0 200 400" aria-hidden="true">
+      <g stroke="#3a2a2a" stroke-width="6" stroke-linecap="round" fill="none">
+        <path d="M100 400V220"/>
+        <path d="M100 300L50 240"/>
+        <path d="M100 270L150 200"/>
+        <path d="M100 220L70 140"/>
+        <path d="M100 220L130 120"/>
+        <path d="M70 140L40 90"/>
+        <path d="M130 120L160 70"/>
+        <path d="M50 240L20 220"/>
+        <path d="M150 200L185 180"/>
+      </g>
+    </svg>
+
+    <div class="box">
+
+      <div class="heart">💘</div>
+
+      <p class="hand">officially your day Mam</p>
+
+      <h2 class="hb2">Happieeessssttttt B'day🐈</h2>
+
+      <h2 class="name" id="bName"></h2>
+
+      <p class="sub" id="bSub"></p>
+
+      <div class="toons">
+        <button class="toon cat" data-i="0" aria-label="Dancing cat">🐈</button>
+        <button class="toon bear" data-i="1" aria-label="Teddy">🧸</button>
+        <button class="toon arrow" data-i="2" aria-label="Cupid arrow">💘</button>
+      </div>
+
+      <button class="btn next">Aage dekhen kyaaaaa!! →</button>
+
+    </div>
+  </section>
+
+
+  <!-- 2. BAKE -->
+  <section class="stage" id="st-bake">
+
+    <div class="box">
+
+      <p class="small">
+        Aaiyeeee apkiiii nagari mein pravesh krte hain
+      </p>
+
+      <div class="bakecake">🎂</div>
+
+      <div class="bar">
+        <i id="barFill"></i>
+      </div>
+
+      <p class="sub">
+        <h1> Kya kehte hain kuch kalakari ho jaye!!</h1>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 3. POP -->
+  <section class="stage" id="st-pop">
+
+    <div class="box">
+
+      <h2 class="title">
+        Fod dijiye balloonss ko jaise meri tange todiii thiii🥺🎈
+      </h2>
+
+      <p class="sub">
+        Booom Boom !! Jor se 
+      </p>
+
+      <div class="balloons" id="balloons"></div>
+
+      <div class="reasons" id="reasons"></div>
+
+      <button class="btn next" id="popNext" hidden>
+        Aage chaloooooo →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- 4. PLEAD -->
+  <section class="stage" id="st-plead">
+
+    <div class="box">
+
+      <h2 class="title" id="pQ"></h2>
+
+      <div class="toon big" id="pFace">🥺</div>
+
+      <p class="sub" id="pLine"></p>
+
+      <div class="row">
+        <button class="btn" id="yesBtn"></button>
+        <button class="btn ghost" id="noBtn">No</button>
+      </div>
+
+      <div class="pics" id="pleadPics"></div>
+
+      <button class="btn next" id="pleadNext" hidden>
+        Aage chalo →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- 5. MEMORIES -->
+  <section class="stage" id="st-mem">
+
+    <div class="box wide">
+
+      <h2 class="title">
+        Aur yahan koi to pariiii dikhiiiii
+      </h2>
+
+      <p class="sub">
+        Hathoooo se jhaduuu lagaooo to jaaraaa screen pe ➜
+      </p>
+
+      <div class="car" id="car"></div>
+
+      <button class="btn next">
+        Arey chlte rahiye , thakiye mat 🧡
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- 6. VIDEOS -->
+  <section class="stage" id="st-vid">
+
+    <div class="box">
+
+      <h2 class="title">Ye dekhooooooo 🎬</h2>
+
+      <p class="sub">
+        Tanniiii awaaajjj badhabaaa mardeee🔊
+      </p>
+
+      <div class="vids" id="vids"></div>
+
+      <button class="btn next">
+        Dekhiii ektuuu aage choloooo →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- 7. WISH TREE -->
+  <section class="stage" id="st-tree">
+
+    <div class="box">
+
+      <h2 class="title">Wish Tree 🌳</h2>
+
+      <p class="sub">
+        Jara isss dil ko toh chuooo
+      </p>
+
+      <div class="tree">
+        <div class="canopy" id="canopy"></div>
+        <div class="trunk"></div>
+      </div>
+
+      <p class="wish" id="wishShow" role="status">
+        💖 tap karo 💖
+      </p>
+
+      <button class="btn next">
+        Letssss goooooo →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- 8. LETTER -->
+  <section class="stage" id="st-letter">
+
+    <div class="box">
+
+      <h2 class="title">Sentyyyy mt hona😂💌</h2>
+
+      <div class="env" id="env" role="button" tabindex="0">
+        <div class="flap"></div>
+        <div class="seal">❤</div>
+        <span>Tap to open</span>
+      </div>
+
+      <article class="paper" id="paper" hidden></article>
+
+      <button class="btn next" id="letterNext" hidden>
+        Last surpriseeeeee →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- 9. FINAL -->
+  <section class="stage" id="st-final">
+
+    <div class="box">
+
+      <h2 class="title">Make a Wish ✨</h2>
+
+      <div class="cake" id="cake" aria-hidden="true">
+
+        <div class="candles">
+          <i><b></b></i>
+          <i><b></b></i>
+          <i><b></b></i>
+        </div>
+
+        <div class="tier t1"></div>
+        <div class="tier t2"></div>
+        <div class="plate"></div>
+
+      </div>
+
+      <button class="btn" id="wishBtn">
+        Make a Wish🕯️
+      </button>
+
+      <div class="final-msg" id="finalMsg" hidden>
+
+        <p id="finalText"></p>
+
+        <button class="btn ghost" id="replayBtn">
+          Replay 🔁
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
